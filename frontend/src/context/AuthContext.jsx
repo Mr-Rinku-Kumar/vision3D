@@ -20,7 +20,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
 
-    console.log('STORED TOKEN:', storedToken);
 
     if (
       storedToken &&

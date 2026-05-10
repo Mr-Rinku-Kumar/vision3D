@@ -4,11 +4,9 @@ module.exports = (req, res, next) => {
   try {
     const authHeader = req.header('Authorization');
 
-    console.log('AUTH HEADER:', authHeader);
 
     const token = authHeader?.replace('Bearer ', '');
 
-    console.log('TOKEN:', token);
 
     if (!token) {
       return res.status(401).json({
@@ -18,7 +16,6 @@ module.exports = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    console.log('DECODED:', decoded);
 
     req.userId = decoded.userId;
 
